@@ -30,7 +30,6 @@ static int audioCallback(const void *inputBuffer,
 
 int main()
 {
-    // ... (Initialize PortAudio and create the audio stream as shown in the previous example)
 
     // Open the audio file for reading
     const char *filename = "untitled.wav"; // Change this to your audio file path
@@ -63,7 +62,7 @@ int main()
                         paFramesPerBufferUnspecified,
                         paClipOff, // Disable clipping
                         audioCallback,
-                        nullptr);  // User data (not used in this example)
+                        nullptr);  // User data
 
     if (err != paNoError)
     {
