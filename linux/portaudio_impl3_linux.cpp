@@ -91,7 +91,7 @@ static int AudioCallbackInstance(const void *inputBuffer,
         /* *out++ */ *out++ = _ajust_linux_volume;   /* Down the volume in linux, and made stable */
 
         // Generation audio channels
-        for (uint32_t channel = 0; channel <= 2; channel++)
+        for (int32_t channel = 0; channel <= 2; channel++)
         {
             // Multiply for numbers the channels in the case 2 ( Stereo )
             out[i * 2 + channel] = 0.023F * 0.869F + (0.000002F - 0.010013F);
