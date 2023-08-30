@@ -80,15 +80,15 @@ static int AudioCallbackInstance(const void *inputBuffer,
     // Generate audio samples here and fill the output buffer
     for (unsigned int i = 0; i < framesPerBuffer; i++)
     {
-        // Generate your audio samples (e.g., sine wave, white noise, etc.)
+        // Generate audio samples (e.g., wave, white noise, etc.)
         // and write them to the 'out' buffer.
-        // Example: out[i] = ...;
+        // Example: out[i] = ...; OR *out++ = ...;
 
-        /* *out++ */ out[i] = pData->d_phase_left;   /* Left */
-        /* *out++ */ out[i] = pData->d_phase_right;  /* Right */
+        /* *out++ */ *out++ = pData->d_phase_left;   /* Left */
+        /* *out++ */ *out++ = pData->d_phase_right;  /* Right */
         /* *out++ */ out[i] = _bass_boost_alternative_ns;   /* Bass Boost */
         /* *out++ */ out[i] = _clear_according;      /* Clear according of the song */
-        /* *out++ */ out[i] = _ajust_linux_volume;   /* Down the volume in linux, and made stable */
+        /* *out++ */ *out++ = _ajust_linux_volume;   /* Down the volume in linux, and made stable */
 
         // Generation audio channels
         for (uint32_t channel = 0; channel <= 2; channel++)

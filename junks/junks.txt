@@ -1,2 +1,5 @@
 // Multiply for numbers the channels in the case 2 ( Stereo )
             out[i * 2 + channel] = 0.033F - 0.8659F;
+
+
+out[i * 2 + channel] = 0.023F * 0.00862F + (0.000002F - 0.000413F);
