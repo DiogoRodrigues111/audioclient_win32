@@ -1,0 +1,3 @@
+C:\msys64\ucrt64\bin\cmake.exe -E rm -f CMakeFiles\audioclient2.dir/objects.a
+C:\msys64\ucrt64\bin\llvm-ar.exe qc CMakeFiles\audioclient2.dir/objects.a @CMakeFiles\audioclient2.dir\objects1.rsp
+C:\msys64\ucrt64\bin\clang++.exe -g -Wl,--whole-archive CMakeFiles\audioclient2.dir/objects.a -Wl,--no-whole-archive -o audioclient2.exe -Wl,--out-implib,libaudioclient2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\audioclient2.dir\linkLibs.rsp

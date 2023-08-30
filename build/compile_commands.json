@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/build",
+  "command": "/usr/bin/clang++ -g -o CMakeFiles/audioclient_linux.dir/linux/portaudio_impl3_linux.cpp.o -c \"/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/linux/portaudio_impl3_linux.cpp\"",
+  "file": "/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/linux/portaudio_impl3_linux.cpp"
+}
+]

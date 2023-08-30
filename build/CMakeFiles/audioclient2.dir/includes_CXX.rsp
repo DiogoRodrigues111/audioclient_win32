@@ -1,0 +1,1 @@
+-I"C:/dev/CXX Projects/audioclient_win32/audioclient2" -I"C:/dev/CXX Projects/audioclient_win32/PUBLIC" -I"C:/msys64/ucrt64/include/gstreamer-1.0" -I"C:/msys64/ucrt64/include/glib-2.0" -I"C:/msys64/ucrt64/lib/glib-2.0/include" -Ic:/msys64/ucrt64/include

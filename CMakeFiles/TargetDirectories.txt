@@ -1,0 +1,3 @@
+/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/CMakeFiles/audioclient_linux.dir
+/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/CMakeFiles/edit_cache.dir
+/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/CMakeFiles/rebuild_cache.dir

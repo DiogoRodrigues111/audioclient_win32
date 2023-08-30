@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "windows.h": "c",
+        "audioclient.h": "c",
+        "iostream": "cpp",
+        "ostream": "cpp"
+    }
+}
