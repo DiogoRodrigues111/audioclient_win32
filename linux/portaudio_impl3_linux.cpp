@@ -52,7 +52,9 @@ static float _clear_according = 0.96F;
 /* Needed to converter and allocation in buffer for send audio playback
      It is a Global variable. 
      In Linux operating system have difference in audio playback.
-     And the It variable is very important - Ajusts Audio Playback in Linux
+     And the It variable is very important - Ajusts Audio Playback in Linux (Pipewire or PulseAudio).
+     - Microsoft Windows non needed. If you using an driver to Realtek or somethings
+        If not uses Driver of Audio in Windows can be necessary using somethings like that ( KEEP YOUR CHOICE ) got it.
      - It is a Global Variable */
 static float _ajust_linux_volume = 4.7F;
 #endif
