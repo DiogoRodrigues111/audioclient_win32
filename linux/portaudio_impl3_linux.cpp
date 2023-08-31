@@ -171,9 +171,9 @@ int main()
    err = Pa_OpenDefaultStream( &stream,
                                  0,                 /* no input channels */
                                  2,                 /* stereo output */
-                                 paFloat32,           /* 32 bit floating point output */
-                                 FRAME_RATE_96000,         /* SAMPLE RATE */
-                                 FRAME_PER_BUFFER_2048,     /* frames per buffer, i.e. the number
+                                 paInt24,           /* 32 bit floating point output */
+                                 FRAME_RATE_192000,         /* SAMPLE RATE */
+                                 FRAME_PER_BUFFER_4096,     /* frames per buffer, i.e. the number
                                                             of sample frames that PortAudio will
                                                             request from the callback. Many apps
                                                             may want to use
