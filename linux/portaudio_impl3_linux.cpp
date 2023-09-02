@@ -122,7 +122,7 @@ int main()
                                  0,
                                  /* stereo output */
                                  2,
-                                 /* 32 bit floating point output */
+                                 /* example: 32 bit floating point output */
                                  paInt24,
                                  /* SAMPLE RATE */
                                  FRAME_RATE_192000,
