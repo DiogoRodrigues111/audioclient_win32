@@ -65,6 +65,7 @@ build CMakeFiles/audioclient_linux.dir/linux/portaudio_impl3_linux.cpp.o: CXX_CO
 
 build audioclient_linux: CXX_EXECUTABLE_LINKER__audioclient_linux_Debug CMakeFiles/audioclient_linux.dir/linux/portaudio_impl3_linux.cpp.o
   FLAGS = -g
+  LINK_FLAGS = -m64
   LINK_LIBRARIES = -lportaudio
   OBJECT_DIR = CMakeFiles/audioclient_linux.dir
   POST_BUILD = :

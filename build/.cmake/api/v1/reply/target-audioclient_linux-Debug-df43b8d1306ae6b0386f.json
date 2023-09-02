@@ -25,13 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 5,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 9,
+				"line" : 16,
 				"parent" : 0
 			}
 		]
@@ -62,7 +62,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "",
+				"fragment" : "-m64",
 				"role" : "flags"
 			},
 			{

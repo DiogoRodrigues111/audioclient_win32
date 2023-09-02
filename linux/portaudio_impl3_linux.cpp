@@ -29,7 +29,8 @@
 #define FRAME_PER_BUFFER_4096       (4096)
 
 // Used together in AudioCallbackInstance to calling
-typedef struct {
+typedef struct __attribute__ ((__aligned__(8)))
+{
     float d_phase_right;
     float d_phase_left;
     float d_bass_boost;
@@ -40,7 +41,7 @@ typedef struct {
 } CALLBACK_INFORMATION_FN, *CALLBACK_INFORMATION_FN_PTR;
 
 // Used to calling in user data parameter, to allocation in AudioCallbackInstance
-static CALLBACK_INFORMATION_FN data;
+static CALLBACK_INFORMATION_FN *data;
 
 /* Needed to converter and allocation in buffer for send audio playback
     It is a Global variable */
@@ -80,69 +81,17 @@ static int AudioCallbackInstance(const void *inputBuffer,
     float *out = (float *)outputBuffer;
 
     // Generate audio samples here and fill the output buffer
-    for (unsigned int i = 0; i < framesPerBuffer; i++)
+    for (unsigned int i = 0; i <= framesPerBuffer; i++)
     {
         // Generate audio samples (e.g., wave, white noise, etc.)
         // and write them to the 'out' buffer.
         // Example: out[i] = ...; OR *out++ = ...;
 
-        /* *out++ */ *out++ = pData->d_phase_left;   /* Left */
-        /* *out++ */ *out++ = pData->d_phase_right;  /* Right */
-        /* *out++ */ out[i] = _bass_boost_alternative_ns;   /* Bass Boost */
-        /* *out++ */ out[i] = _clear_according;      /* Clear according of the song */
-        /* *out++ */ *out++ = _ajust_linux_volume;   /* Down the volume in linux, and made stable */
-
-        // Generation audio channels
-        for (int32_t channel = 0; channel <= 4; ++channel)
-        {
-            // Multiply for numbers the channels in the case 2 ( Stereo )
-            out[i * 4 + channel] = 0.023F * 0.869F + (0.000002F - 0.010013F);
-        }
-
-        /* higher pitch so we can distinguish left and right. */
-        pData->d_phase_left = 0.01F;
-        if (pData->d_phase_left >= 1.0F)
-            { pData->d_phase_left -= 2.0F; }
-
-        /* Generate simple sawtooth phaser that ranges between -1.0 and 1.0. */
-        pData->d_phase_right = 0.03F;
-        if (pData->d_phase_right >= 1.0F)
-            { pData->d_phase_right -= 2.0F; }
-        
-        /* Generate simple clear according phaser that ranges between -1.0 and 1.0. */
-        if (_clear_according >= 0.010F)
-        {
-            float j;
-            for (j = 0; j < _clear_according * 0.013F; --j) {
-                _clear_according = _clear_according * j;
-            }
-        }
-        else
-            { out = &_clear_according; }
-
-        /* Generate simple bass boost phaser that ranges between -1.0 and 1.0. */
-        if (_bass_boost_alternative_ns >= 0.04F)
-        {
-            float j, k;
-            
-            for (k = 0; k < 0x0CA; k++) {
-                k++;
-            }
-
-            for (j = 0; j < k * 0.8133796F +1.0F; ++j) {
-                _bass_boost_alternative_ns = j * k + (0.95644F - 0xFA5);
-            }
-        }
-        else
-            { out = &_bass_boost_alternative_ns; }
-
-        /* Generate simple ajusting linux audio phaser that ranges between -1.0 and 1.0. */
-        #ifdef __linux__
-        if (_ajust_linux_volume > 0.86222F)
-        {
-            _ajust_linux_volume = 0.53F;
-        }
-        #endif
+        /* *out++ */ //*out++ = pData->d_phase_left;   /* Left */
+        /* *out++ */ //*out++ = pData->d_phase_right;  /* Right */
+        /* *out++ */ //out[i] = _bass_boost_alternative_ns;   /* Bass Boost */
+        /* *out++ */ //out[i] = _clear_according;      /* Clear according of the song */
+        /* *out++ */ //*out++ = _ajust_linux_volume;   /* Down the volume in linux, and made stable */
     }
 
     return paContinue;
@@ -169,20 +118,26 @@ int main()
 
    // Open in default audio selected for operationg system
    err = Pa_OpenDefaultStream( &stream,
-                                 0,                 /* no input channels */
-                                 2,                 /* stereo output */
-                                 paInt24,           /* 32 bit floating point output */
-                                 FRAME_RATE_192000,         /* SAMPLE RATE */
-                                 FRAME_PER_BUFFER_4096,     /* frames per buffer, i.e. the number
-                                                            of sample frames that PortAudio will
-                                                            request from the callback. Many apps
-                                                            may want to use
-                                                            paFramesPerBufferUnspecified, which
-                                                            tells PortAudio to pick the best,
-                                                            possibly changing, buffer size. */
-                                 AudioCallbackInstance,   /* this is your callback function */
-                                 &data                    /*This is a pointer that will be passed to
-                                                                your callback */
+                                /* no input channels */
+                                 0,
+                                 /* stereo output */
+                                 2,
+                                 /* 32 bit floating point output */
+                                 paInt24,
+                                 /* SAMPLE RATE */
+                                 FRAME_RATE_44100,
+                                 /* frames per buffer, i.e. the number
+                                    of sample frames that PortAudio will
+                                    request from the callback. Many apps
+                                    may want to use
+                                    paFramesPerBufferUnspecified, which
+                                    tells PortAudio to pick the best,
+                                    possibly changing, buffer size. */
+                                 FRAME_PER_BUFFER_2048,
+                                 /* this is your callback function */     
+                                 AudioCallbackInstance,
+                                 /*This is a pointer that will be passed to your callback */
+                                 &data
     );
 
     if (err != paNoError)
