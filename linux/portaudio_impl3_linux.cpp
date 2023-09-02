@@ -125,7 +125,7 @@ int main()
                                  /* 32 bit floating point output */
                                  paInt24,
                                  /* SAMPLE RATE */
-                                 FRAME_RATE_44100,
+                                 FRAME_RATE_192000,
                                  /* frames per buffer, i.e. the number
                                     of sample frames that PortAudio will
                                     request from the callback. Many apps
@@ -133,7 +133,7 @@ int main()
                                     paFramesPerBufferUnspecified, which
                                     tells PortAudio to pick the best,
                                     possibly changing, buffer size. */
-                                 FRAME_PER_BUFFER_2048,
+                                 FRAME_PER_BUFFER_4096,
                                  /* this is your callback function */     
                                  AudioCallbackInstance,
                                  /*This is a pointer that will be passed to your callback */
