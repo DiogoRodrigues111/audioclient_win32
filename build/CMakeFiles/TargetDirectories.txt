@@ -1,3 +1,3 @@
-/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/build/CMakeFiles/audioclient_linux.dir
-/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/build/CMakeFiles/edit_cache.dir
-/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/build/CMakeFiles/rebuild_cache.dir
+C:/dev/CPP_Projects/linux/audioclient_win32/build/CMakeFiles/audioclient3_clean_windows.dir
+C:/dev/CPP_Projects/linux/audioclient_win32/build/CMakeFiles/edit_cache.dir
+C:/dev/CPP_Projects/linux/audioclient_win32/build/CMakeFiles/rebuild_cache.dir

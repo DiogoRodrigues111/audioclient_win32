@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "audioclient_linux"
+			"path" : "audioclient3_clean_windows.exe"
+		},
+		{
+			"path" : "audioclient3_clean_windows.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -52,7 +55,7 @@
 			]
 		}
 	],
-	"id" : "audioclient_linux::@6890427a1f51a3e7e1df",
+	"id" : "audioclient3_clean_windows::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -69,12 +72,16 @@
 				"backtrace" : 2,
 				"fragment" : "-lportaudio",
 				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "audioclient_linux",
-	"nameOnDisk" : "audioclient_linux",
+	"name" : "audioclient3_clean_windows",
+	"nameOnDisk" : "audioclient3_clean_windows.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -95,7 +102,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "linux/portaudio_impl3_linux.cpp",
+			"path" : "windows/portaudio_impl3_clean.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

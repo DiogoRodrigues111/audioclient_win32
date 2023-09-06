@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -27,7 +27,7 @@
 					[
 						0
 					],
-					"name" : "audioclient",
+					"name" : "audioclient3_clean_windows",
 					"targetIndexes" : 
 					[
 						0
@@ -38,9 +38,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "audioclient_linux::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-audioclient_linux-Debug-17bbeb7056538b328cab.json",
-					"name" : "audioclient_linux",
+					"id" : "audioclient3_clean_windows::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-audioclient3_clean_windows-Debug-d57aff67f63726aa729f.json",
+					"name" : "audioclient3_clean_windows",
 					"projectIndex" : 0
 				}
 			]
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/build",
-		"source" : "/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32"
+		"build" : "C:/dev/CPP_Projects/linux/audioclient_win32/build",
+		"source" : "C:/dev/CPP_Projects/linux/audioclient_win32"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 5
 	}
 }

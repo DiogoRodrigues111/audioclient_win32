@@ -1,7 +1,8 @@
 [
 {
-  "directory": "/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/build",
-  "command": "/usr/bin/clang++ -g -o CMakeFiles/audioclient_linux.dir/linux/portaudio_impl3_linux.cpp.o -c \"/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/linux/portaudio_impl3_linux.cpp\"",
-  "file": "/home/diogorroessler/dev/CXX Projects/linux/audioclient_win32/linux/portaudio_impl3_linux.cpp"
+  "directory": "C:/dev/CPP_Projects/linux/audioclient_win32/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\clang++.exe   -g -o CMakeFiles\\audioclient3_clean_windows.dir\\windows\\portaudio_impl3_clean.cpp.obj -c C:\\dev\\CPP_Projects\\linux\\audioclient_win32\\windows\\portaudio_impl3_clean.cpp",
+  "file": "C:/dev/CPP_Projects/linux/audioclient_win32/windows/portaudio_impl3_clean.cpp",
+  "output": "CMakeFiles/audioclient3_clean_windows.dir/windows/portaudio_impl3_clean.cpp.obj"
 }
 ]
