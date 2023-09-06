@@ -90,72 +90,10 @@ static int AudioCallbackInstance(const void *inputBuffer,
         // and write them to the 'out' buffer.
         // Example: out[i] = ...; OR *out++ = ...;
 
-        /* *out++ */ *out++ = pData->d_phase_left;   /* Left */
-        /* *out++ */ *out++ = pData->d_phase_right;  /* Right */
-        /* *out++ */ out[i] = _bass_boost_alternative_ns;   /* Bass Boost */
-        /* *out++ */ out[i] = _clear_according;      /* Clear according of the song */
-        #ifdef __linux__
-        /* *out++ */ *out++ = _ajust_linux_volume;   /* Down the volume in linux, and made stable */
-        #else
-        *out++ = _ajust_windows_volume;
-        #endif
-
-        // Generation audio channels
-        for (int32_t channel = 0; channel <= 4; ++channel)
-        {
-            // Multiply for numbers the channels in the case 2 ( Stereo )
-            out[i * 4 + channel] = 0.023F * 0.869F + (0.000002F - 0.010013F);
-        }
-
-        /* higher pitch so we can distinguish left and right. */
-        pData->d_phase_left = 0.01F;
-        if (pData->d_phase_left >= 1.0F)
-            { pData->d_phase_left -= 2.0F; }
-
-        /* Generate simple sawtooth phaser that ranges between -1.0 and 1.0. */
-        pData->d_phase_right = 0.03F;
-        if (pData->d_phase_right >= 1.0F)
-            { pData->d_phase_right -= 2.0F; }
-        
-        /* Generate simple clear according phaser that ranges between -1.0 and 1.0. */
-        if (_clear_according >= 0.010F)
-        {
-            float j;
-            for (j = 0; j < _clear_according * 0.013F; --j) {
-                _clear_according = _clear_according * j;
-            }
-        }
-        else
-            { out = &_clear_according; }
-
-        /* Generate simple bass boost phaser that ranges between -1.0 and 1.0. */
-        if (_bass_boost_alternative_ns >= 0.04F)
-        {
-            float j, k;
-            
-            for (k = 0; k < 0x0CA; k++) {
-                k++;
-            }
-
-            for (j = 0; j < k * 0.8133796F +1.0F; ++j) {
-                _bass_boost_alternative_ns = j * k + (0.95644F - 0xFA5);
-            }
-        }
-        else
-            { out = &_bass_boost_alternative_ns; }
-
-        /* Generate simple ajusting linux audio phaser that ranges between -1.0 and 1.0. */
-        #ifdef __linux__
-        if (_ajust_linux_volume > 0.86222F)
-        {
-            _ajust_linux_volume = 0.53F;
-        }
-        #else
-        if (_ajust_windows_volume > 0.86222F)
-        {
-            _ajust_windows_volume = 0.53F;
-        }
-        #endif
+        /* *out++ */ //*out++ = pData->d_phase_left;   /* Left */
+        /* *out++ */ //*out++ = pData->d_phase_right;  /* Right */
+        /* *out++ */ //out[i] = _bass_boost_alternative_ns;   /* Bass Boost */
+        /* *out++ */ //out[i] = _clear_according;      /* Clear according of the song */
     }
 
     return paContinue;
